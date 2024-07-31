@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.project.ProjectDao">
+ 
+<insert id="insertMPay" parameterType="com.example.project.PortVO">
+    insert into mpay
+    values (idx.nextval , #{mpaynum},#{membernum}, #{mpaymethod}, #{mpayproduct}, #{mpayprice}, #{mpaydate},
+            #{mpaygym}, #{mpayperiod}, #{mpaytime},#{trainername}, #{ggoodsnum}, null, #{gymnum}, 0)
+</insert>
+
+<select id="selectPayment" resultType="com.example.project.PortVO" parameterType="com.example.project.PortVO">
+    select * from mpay where mpaynum=#{mpaynum}
+</select>
+
+
+ <select id="selectGym" resultType="com.example.project.PortVO" parameterType="int">
+    select * from GYM where  gymnum=#{gymnum}
+</select>
+
+
+ </mapper>
